@@ -25,7 +25,7 @@ If you prefer to install the theme manually:
         ./choose_background.sh
         # Or copy a custom image to grubsouls/background.png
         ```
-    - The script will allow you to choose an image from `backgrounds_options`. If you do not want to run the script, you can always copy any image from that folder to use as background.
+    - The script will allow you to choose an image from `background_galery`. If you do not want to run the script, you can always copy any image from that folder to use as background.
 
     - For alternate backgrounds on boot, copy the images you'd like to shuffle to **grubsouls/backgrounds**. This requires an extra step so checkout the `Configuration` section.
     
@@ -91,3 +91,24 @@ What I've done is:
         ```bash
         sudo grub-mkconfig -o /boot/grub/grub.cfg
         ```
+
+Reiterating [Lxtharia](https://github.com/Lxtharia/minegrub-theme?tab=readme-ov-file#setting-the-console-background)
+
+
+## Setting the console background
+
+When in grub, pressing **'c'** opens the grub console. If you want that console to have a background you can specify `GRUB_BACKGROUND=<path>` in `/etc/defaults/grub`
+
+```bash
+# Create a backup of the file first
+cp /etc/grub.d/00_header ./00_header.bak
+# replace the elif in that line with an fi; if
+sed --in-place -E 's/(.*)elif(.*"x\$GRUB_BACKGROUND" != x ] && [ -f "\$GRUB_BACKGROUND" ].*)/\1fi; if\2/' /etc/grub.d/00_header
+```
+
+Now you can set:
+```
+GRUB_BACKGROUND="/boot/grub/themes/minegrub/terminal_background.png"
+```
+
+And don't forget to regenerate the `grub.cfg`,
