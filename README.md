@@ -2,6 +2,9 @@
 
 A GRUB theme inspired by the Dark Souls series.
 
+Put a screenshot here. TODO
+
+
 # Installation
 
 - Clone or download the theme repository:
