@@ -3,6 +3,7 @@ import random
 import shutil
 import subprocess
 import sys
+from os.path import abspath, dirname
 from pathlib import Path
 
 
@@ -20,15 +21,16 @@ def get_background_image(theme_dir: Path) -> Path:
         if not bg_dir.is_dir():
             print(f"Error: No 'backgrounds' directory found in {theme_dir}")
             sys.exit(1)
-        images = list(bg_dir.glob("*.png")) + list(bg_dir.glob("*.jpg")) + list(bg_dir.glob("*.jpeg"))
-        if not images:
-            print("Error: No images found in 'backgrounds/' directory.")
-            sys.exit(1)
-        return random.choice(images)
+
+        list_background_files = [f for f in bg_dir.iterdir() if f.is_file() and not f.name.startswith('.')]
+        if not list_background_files:
+           print("Error: No images found in 'backgrounds/' directory.")
+           sys.exit(1)
+        return random.choice(list_background_files)
 
 # === Copy new background image ===
 def update_background(image: Path, theme_dir: Path) -> None:
-    dest = theme_dir / "terminal_background.png"
+    dest = theme_dir / "background.png"
     shutil.copy(image, dest)
     print(f"[OK] Background updated: {dest.name}")
 
@@ -60,7 +62,7 @@ def update_package_count(theme_dir: Path) -> None:
         return
 
     theme_txt = theme_dir / "theme.txt"
-    text = "Bosses Slayn"
+    text = "Bosses Slain"
     old_lines = theme_txt.read_text().splitlines()
     new_line = f'\ttext = "{total_packages} {text}"'
 
@@ -74,11 +76,8 @@ def update_package_count(theme_dir: Path) -> None:
 
 # === Main Execution ===
 if __name__ == "__main__":
-    theme_dir = Path(__file__).resolve().parent
+    themedir = Path(dirname(abspath(__file__)))
 
-    theme_dir.mkdir(parents=True, exist_ok=True)
-    (theme_dir / "cache").mkdir(exist_ok=True)
-
-    background_image = get_background_image(theme_dir)
-    update_background(background_image, theme_dir)
-    update_package_count(theme_dir)
+    background_image = get_background_image(themedir)
+    update_background(background_image, themedir)
+    update_package_count(themedir)
