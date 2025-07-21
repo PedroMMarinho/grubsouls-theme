@@ -73,9 +73,9 @@ sudo ./install_theme.sh
 
 ## Adjusting Height and Width for a different amount of boot options:
 
-- If you have more than 4 boot options, the next entries won't be visible. If you want see all of them at once you can change `TODO put link this line` in the file theme.txt. There is a formula inside the file to guide you on that.
+- If you have more than 4 boot options, the next entries won't be visible. If you want see all of them at once you can change [this line](https://github.com/PedroMMarinho/grubsouls-theme/blob/main/grubsouls/theme.txt#L28)  in the file theme.txt. There is a formula inside the file to guide you on that.
 
-- If you have a boot entry with a large name you might need to change the width of the boot_menu. For that you can change `TODO put link this line`.
+- If you have a boot entries with a large names you might need to change the width of the boot_menu. For that you can change [this line](https://github.com/PedroMMarinho/grubsouls-theme/blob/main/grubsouls/theme.txt#L21).
 
 ## Changing the names and classes of the boot entries:
 
