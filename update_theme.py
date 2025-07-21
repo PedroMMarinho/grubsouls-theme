@@ -9,15 +9,17 @@ from pathlib import Path
 
 # === Get background image argument or choose randomly ===
 def get_background_image(theme_dir: Path) -> Path:
+    bg_dir = theme_dir / "backgrounds"
+
     if len(sys.argv) > 1:
         image = Path(sys.argv[1])
-        if image.is_file():
-            return image
+        path = bg_dir / image
+        if path.is_file():
+            return path
         else:
             print(f"Error: Image {image} not found.")
             sys.exit(1)
     else:
-        bg_dir = theme_dir / "backgrounds"
         if not bg_dir.is_dir():
             print(f"Error: No 'backgrounds' directory found in {theme_dir}")
             sys.exit(1)

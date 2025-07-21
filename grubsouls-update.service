@@ -1,9 +1,9 @@
 [Unit]
-Description=grubsouls theme update service
+Description=Grubsouls theme update service
 After=hibernate.target
 
 [Service]
-ExecStart=/usr/bin/python3 /boot/grub/themes/minegrub/update_theme.py
+ExecStart=/usr/bin/python3 /boot/grub/themes/grubsouls/update_theme.py
 
 [Install]
 WantedBy=multi-user.target hibernate.target
