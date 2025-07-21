@@ -1,3 +1,8 @@
+The Full Darksouls Experience:
+
+| *> Dark Souls Grub <* | [Plymouth Loading Menu]() IN DEVELOPMENT 
+| --- | ---  |
+
 # Grub Souls III 
 
 A GRUB theme inspired by the Dark Souls series.
@@ -13,7 +18,7 @@ Put a screenshot here. TODO
 git clone git@github.com:PedroMMarinho/grubsouls-theme.git
 ```
 
-## ⚙️ Manually
+## Manually
 
 If you prefer to install the theme manually:
 
@@ -117,5 +122,30 @@ And don't forget to regenerate the `grub.cfg`.
 ## Updating background and "x Bosses Slain" text after every boot
 
 
+The `update_theme.py` script updates the amount of packages currently installed and randomly chooses a file from the folder `backgrounds/` as the background image.
 
-### Update background and "Bosses Slain"...
+For this to work make sure you have:
+
+- `fastfetch` or `neofetch` is installed
+- Simple Python 3 installation 
+- Put all backgrounds you want to randomly choose from in ./grubsouls/backgrounds/. You can also add your own images :) 
+- If you want a certain background to be used on the next boot you can run `python update_theme.py <BACKGROUND_FILE_NAME>`
+
+To have this `automatically` running you'll to do the following:
+
+\> For systemd
+
+- Edit `./grubsouls-update.service` to use `/boot/grub2/` if necessary.
+
+- Copy .`/grubsouls-update.service` to `/etc/systemd/system`.
+
+- Enable the service: `systemctl enable grubsouls-update.service`
+
+- If for some reason it does not update after boot you can run `systemctl status grubsouls-update.service` and check for errors.
+
+
+## A Big Thanks to
+
+- [Lxtharia](https://github.com/Lxtharia) for sharing his work [Minegrub](https://github.com/Lxtharia/minegrub-theme) (Helped a ton for development reference!!!)
+- This beatifull collection of themes that also inspired me and helped me learn (https://github.com/Jacksaur/Gorgeous-GRUB)
+- Documentation of course (http://web.archive.org/web/20241209100014/http://wiki.rosalab.ru/en/index.php/Grub2_theme_tutorial) and this one (https://www.gnu.org/software/grub/manual/grub/html_node/Theme-file-format.html).
