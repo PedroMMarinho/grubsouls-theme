@@ -148,4 +148,4 @@ To have this `automatically` running you'll to do the following:
 
 - [Lxtharia](https://github.com/Lxtharia) for sharing his work [Minegrub](https://github.com/Lxtharia/minegrub-theme) (Helped a ton for development reference!!!)
 - This beatifull collection of themes that also inspired me and helped me learn (https://github.com/Jacksaur/Gorgeous-GRUB)
-- Documentation of course (http://web.archive.org/web/20241209100014/http://wiki.rosalab.ru/en/index.php/Grub2_theme_tutorial) and this one (https://www.gnu.org/software/grub/manual/grub/html_node/Theme-file-format.html).
+- Documentation of course (http://web.archive.org/web/20241209100014/http://wiki.rosalab.ru/en/index.php/Grub2_theme_tutorial), (https://www.gnu.org/software/grub/manual/grub/html_node/Theme-file-format.html).
