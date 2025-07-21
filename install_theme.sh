@@ -70,7 +70,6 @@ if [[ "$install_service" =~ [yY] ]]; then
     if [[ -f "$SCRIPT_DIR/$systemd_service" ]]; then
         echo "[INFO] Installing service..."
         cp -uv "$SCRIPT_DIR/$systemd_service" /etc/systemd/system/
-        systemctl daemon-reexec
     else
         echo "[WARN] Service file '$systemd_service' not found."
     fi

@@ -10,7 +10,7 @@ Put a screenshot here. TODO
 - Clone or download the theme repository:
 
 ```bash
-git clone TODO
+git clone git@github.com:PedroMMarinho/grubsouls-theme.git
 ```
 
 ## ⚙️ Manually
@@ -111,4 +111,11 @@ Now you can set:
 GRUB_BACKGROUND="/boot/grub/themes/minegrub/terminal_background.png"
 ```
 
-And don't forget to regenerate the `grub.cfg`,
+And don't forget to regenerate the `grub.cfg`.
+
+
+## Updating background and "x Bosses Slain" text after every boot
+
+
+
+### Update background and "Bosses Slain"...

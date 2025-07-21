@@ -1,0 +1,84 @@
+import re
+import random
+import shutil
+import subprocess
+import sys
+from pathlib import Path
+
+
+# === Get background image argument or choose randomly ===
+def get_background_image(theme_dir: Path) -> Path:
+    if len(sys.argv) > 1:
+        image = Path(sys.argv[1])
+        if image.is_file():
+            return image
+        else:
+            print(f"Error: Image {image} not found.")
+            sys.exit(1)
+    else:
+        bg_dir = theme_dir / "backgrounds"
+        if not bg_dir.is_dir():
+            print(f"Error: No 'backgrounds' directory found in {theme_dir}")
+            sys.exit(1)
+        images = list(bg_dir.glob("*.png")) + list(bg_dir.glob("*.jpg")) + list(bg_dir.glob("*.jpeg"))
+        if not images:
+            print("Error: No images found in 'backgrounds/' directory.")
+            sys.exit(1)
+        return random.choice(images)
+
+# === Copy new background image ===
+def update_background(image: Path, theme_dir: Path) -> None:
+    dest = theme_dir / "terminal_background.png"
+    shutil.copy(image, dest)
+    print(f"[OK] Background updated: {dest.name}")
+
+# === Replace a specific line in theme.txt ===
+def patch(path: Path, index: int, new_line: str) -> None:
+    lines = path.read_text().splitlines()
+    lines[index] = new_line
+    path.write_text("\n".join(lines) + "\n")
+
+# === Count installed packages from fastfetch/neofetch ===
+def update_package_count(theme_dir: Path) -> None:
+    for command in [["fastfetch", "-c", "neofetch"], ["neofetch"]]:
+        try:
+            output = subprocess.run(command, stdout=subprocess.PIPE, text=True, check=True).stdout
+            break
+        except (FileNotFoundError, subprocess.CalledProcessError):
+            continue
+    else:
+        print("Error: Neither Fastfetch or Neofetch are available.")
+        return
+
+    for line in output.splitlines():
+        if "Packages" in line:
+            numbers = [int(n) for n in re.findall(r"\d+", line)]
+            total_packages = sum(numbers)
+            break
+    else:
+        print("Error: Could not find package count.")
+        return
+
+    theme_txt = theme_dir / "theme.txt"
+    text = "Bosses Slayn"
+    old_lines = theme_txt.read_text().splitlines()
+    new_line = f'\ttext = "{total_packages} {text}"'
+
+    for i, line in enumerate(old_lines):
+        if text in line:
+            patch(theme_txt, i, new_line)
+            print(f"[OK] Updated: {total_packages} {text}")
+            return
+
+    print(f"[WARN] Line containing '{text}' not found in theme.txt")
+
+# === Main Execution ===
+if __name__ == "__main__":
+    theme_dir = Path(__file__).resolve().parent
+
+    theme_dir.mkdir(parents=True, exist_ok=True)
+    (theme_dir / "cache").mkdir(exist_ok=True)
+
+    background_image = get_background_image(theme_dir)
+    update_background(background_image, theme_dir)
+    update_package_count(theme_dir)
