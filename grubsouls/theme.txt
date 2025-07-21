@@ -1,0 +1,85 @@
+# Global
+desktop-image: "background.png"
+title-text: ""
+
+# Terminal Options
+
+terminal-box: "inbox_*.png"
+terminal-font: "Iosevka Term Slab Regular 18"
+terminal-left: "18%+4"
+terminal-top: "21%+4"
+terminal-width: "63%+11"
+terminal-height: "63%+8"
+terminal-border : "20"
+
+# Boot Options
++ boot_menu {
+    left = 39%+6
+    top = 60%
+
+    # Change width depending on the biggest entry
+    width = 360
+
+    # Formula: (N-1)*item_spacing + N*item_height + 2*item_padding = total_height 
+    # With N being the number of entries
+    # For each entry you have it will occupy item_spacing + item_height
+    # In this case 74
+
+    height = 304
+
+    
+    item_font = "AGaramond Regular 32"
+    item_color = "#ffffff"
+    selected_item_color = "#dec490"
+
+    item_height = 46
+    item_padding = 18
+    item_spacing = 28
+ 
+    icon_width = 52
+    icon_height = 52
+    item_icon_space = 8
+    
+
+    selected_item_pixmap_style = "select_*.png"
+
+    scrollbar = false
+}
+
+# Logo Image
++ image {
+    left = 4%+13
+    top = 37%+7
+    file = "assets/GRUB_SOULS_3_WHITE.png"
+}
+
+# Text
++ label {
+    left = 10
+    top = 93%+3
+    text = "GrubSouls 3.1.2"
+    font = "AGaramond Regular 32"
+    color = "#ffffff"
+}
+
+# Text
++ label {
+    left = 10
+    top = 96%+3
+	text = "837 Bosses Slain"
+    font = "AGaramond Regular 32"
+    color = "#ffffff"
+}
+
+# Imminent Despair Countdown
++ label {
+    id = "__timeout__"
+ 
+    align = "right"
+    left = 50%
+    top = 96%+1
+    width = 50%-10
+    text = "Imminent despair in %d seconds"
+    font = "AGaramond Regular 32"
+    color = "#ffffff"
+}
