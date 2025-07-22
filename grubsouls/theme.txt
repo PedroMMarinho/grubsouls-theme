@@ -12,7 +12,7 @@ terminal-width: "63%+11"
 terminal-height: "63%+8"
 terminal-border : "20"
 
-# Boot Options
+# Boot Options Text
 + boot_menu {
     left = 39%+6
     top = 60%
@@ -41,16 +41,49 @@ terminal-border : "20"
     item_icon_space = 8
     
 
+    scrollbar = false
+}
+
+# Shadow 
++ boot_menu {
+    left = 39%+7
+    top = 60%+2
+
+    # Change width depending on the biggest entry
+    width = 360
+
+    # Formula: (N-1)*item_spacing + N*item_height + 2*item_padding = total_height
+    # With N being the number of entries
+    # For each entry you have it will occupy item_spacing + item_height
+    # In this case 74
+
+    height = 304
+
+
+    item_font = "AGaramond Regular 32"
+    item_color = "#121212"
+    selected_item_color = "#25130e"
+
+    item_height = 46
+    item_padding = 18
+    item_spacing = 28
+
+    icon_width = 52
+    icon_height = 52
+    item_icon_space = 8
+
     selected_item_pixmap_style = "select_*.png"
 
     scrollbar = false
 }
 
+
+
 # Logo Image
 + image {
     left = 4%+13
-    top = 37%+7
-    file = "assets/GRUB_SOULS_3_WHITE.png"
+    top = 36%+9
+    file = "assets/GRUB_SOULS_LOGO.png"
 }
 
 # Text
@@ -62,16 +95,34 @@ terminal-border : "20"
     color = "#ffffff"
 }
 
+# Shadow
++ label {
+    left = 11
+    top = 93%+5
+    text = "GrubSouls 3.1.2"
+    font = "AGaramond Regular 32"
+    color = "#2f2f2f"
+}
+
 # Text
 + label {
     left = 10
     top = 96%+3
-	text = "837 Bosses Slain"
+   text = "837 Bosses Slain"
     font = "AGaramond Regular 32"
     color = "#ffffff"
 }
 
-# Imminent Despair Countdown
+# Shadow
++ label {
+    left = 11   
+    top = 96%+5
+   text = "837 Bosses Slain"
+    font = "AGaramond Regular 32"
+    color = "#2f2f2f"
+}
+
+# Imminent Despair Countdown Text
 + label {
     id = "__timeout__"
  
@@ -82,4 +133,18 @@ terminal-border : "20"
     text = "Imminent despair in %d seconds"
     font = "AGaramond Regular 32"
     color = "#ffffff"
+}
+
+
+# Imminent Despair Countdown Shadow
++ label {
+    id = "__timeout__"
+ 
+    align = "right"
+    left = 50%
+    top = 96%+3
+    width = 50%-9
+    text = "Imminent despair in %d seconds"
+    font = "AGaramond Regular 32"
+    color = "#2f2f2f"
 }
