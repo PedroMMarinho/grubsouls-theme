@@ -127,8 +127,8 @@ The `update_theme.py` script updates the amount of packages currently installed 
 For this to work make sure you have:
 
 - `fastfetch` or `neofetch` is installed
-- Simple Python 3 installation 
-- Put all backgrounds you want to randomly choose from in ./grubsouls/backgrounds/. You can also add your own images :) 
+- Simple Python 3 (or other variation) installation 
+- Put all backgrounds you want to randomly choose from in `./grubsouls/backgrounds/`. You can also add your own images :) 
 - If you want a certain background to be used on the next boot you can run `python update_theme.py <BACKGROUND_FILE_NAME>`
 
 To have this `automatically` running you'll to do the following:
