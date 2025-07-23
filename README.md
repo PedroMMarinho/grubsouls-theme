@@ -7,8 +7,7 @@ The Full Darksouls Experience:
 
 A GRUB theme inspired by the Dark Souls series.
 
-Put a screenshot here. TODO
-
+![grub souls preview](preview/grub-preview.gif)
 
 # Installation
 
