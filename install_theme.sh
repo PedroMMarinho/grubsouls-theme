@@ -32,7 +32,7 @@ theme_path="$grub_path/themes/$theme_name"
 
 # === 4. Optional Background Selection ===
 echo
-read -rp "[?] Choose a specific background from ./background_options/? [y/N] " -n 1 choose_bg
+read -rp "[?] Choose a specific background from ./background_galery/? [y/N] " -n 1 choose_bg
 echo
 if [[ "$choose_bg" =~ [yY] ]]; then
     if [[ -x "$SCRIPT_DIR/$background_script" ]]; then
