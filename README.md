@@ -1,6 +1,6 @@
 The Full Darksouls Experience:
 
-| *> Dark Souls Grub <* | [Plymouth Loading Menu]() IN DEVELOPMENT 
+| *> Dark Souls Grub <* | [Plymouth Loading Menu](https://github.com/PedroMMarinho/plymouth-ds3)
 | --- | ---  |
 
 # Grub Souls III 
