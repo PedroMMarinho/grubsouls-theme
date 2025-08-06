@@ -132,7 +132,7 @@ For this to work make sure you have:
 
 To have this `automatically` running you'll to do the following:
 
-\> For systemd
+> For systemd
 
 - Edit `./grubsouls-update.service` to use `/boot/grub2/` if necessary.
 
