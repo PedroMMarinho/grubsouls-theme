@@ -14,7 +14,7 @@ A GRUB theme inspired by the Dark Souls series.
 - Clone or download the theme repository:
 
 ```bash
-git clone git@github.com:PedroMMarinho/grubsouls-theme.git
+git clone https://github.com/PedroMMarinho/grubsouls-theme.git
 ```
 
 ## Manually
